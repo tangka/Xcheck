@@ -1,0 +1,47 @@
+{
+	"name": "XCheck",
+	"author": "ymdevs",
+	"version": "1.0.0",
+	"description": "CHECK DIAMOND",
+	"icons": {
+		"128": "assets/icon-128.png"
+	},
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+	"permissions": [
+		"activeTab",
+		"alarms",
+		"bookmarks",
+		"cookies",
+		"storage",
+		"tabs",
+		"webRequest",
+		"debugger",
+		"webRequestBlocking",
+		"*://*/*",
+		"webRequest",
+		"browsingData",
+		"<all_urls>"
+	],
+	"manifest_version": 2,
+	"background": {
+		"scripts": [
+			"background.js"
+		],
+		"persistent": true
+	},
+	"browser_action": {
+		"default_title": "check",
+		"default_icon": "assets/icon-48.png",
+		"default_popup": "check.html"
+	},
+	"options_ui": {
+		"page": "options.html",
+		"open_in_tab": true
+	},
+	"content_scripts": [
+		{
+			"js": ["counter.js"],
+			"matches": ["*://*/*"]
+		}
+	]
+}
